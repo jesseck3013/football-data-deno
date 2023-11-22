@@ -26,7 +26,7 @@ Deno.test("areas by id", () => {
 });
 
 Deno.test("competitions", () => {
-  const url = competitions();
+  const url = competitions({});
   assertEquals(url, new URL("https://api.football-data.org/v4/competitions"));
 });
 
@@ -43,14 +43,14 @@ Deno.test("competitions with areas filters", () => {
 
 Deno.test("competition by id", () => {
   assertEquals(
-    competition(2001),
+    competition(2001, {}),
     new URL(`https://api.football-data.org/v4/competitions/2001`),
   );
 });
 
 Deno.test("competition by code", () => {
   assertEquals(
-    competition("PL"),
+    competition("PL", {}),
     new URL(`https://api.football-data.org/v4/competitions/PL`),
   );
 });
@@ -116,7 +116,7 @@ Deno.test("match", () => {
     ids: [2021, 2022],
   };
   assertEquals(
-    match(2021, filters),
+    match(filters),
     new URL(
       `/v4/matches?ids=2021,2022`,
       `https://api.football-data.org`,
