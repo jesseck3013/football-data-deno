@@ -25,7 +25,7 @@ export function areasById(id: number | string): URL {
 }
 
 /** url: `https://api.football-data.org/v4/competitions` */
-export function competitions(filters: Filters = {}): URL {
+export function competitions(filters: Filters): URL {
   const query = buildFilterQuery(filters, ["areas"]);
   return makeURL(`${COMPETITION}${query}`);
 }
@@ -33,7 +33,7 @@ export function competitions(filters: Filters = {}): URL {
 /** url: `https://api.football-data.org/v4/competitions/${idOrCode}` */
 export function competition(
   idOrCode: number | string,
-  filters: Filters = {},
+  filters: Filters,
 ): URL {
   const query = buildFilterQuery(filters, ["areas"]);
   return makeURL(`${COMPETITION}/${idOrCode}${query}`);
@@ -42,7 +42,7 @@ export function competition(
 /** url: `https://api.football-data.org/v4/competitions/${idOrCode}/standings` */
 export function standingsOfCompetition(
   idOrCode: number | string,
-  filters: Filters = {},
+  filters: Filters,
 ): URL {
   const query = buildFilterQuery(filters, ["season", "matchday", "date"]);
   return makeURL(`${COMPETITION}/${idOrCode}/standings${query}`);
@@ -51,7 +51,7 @@ export function standingsOfCompetition(
 /** url: `https://api.football-data.org/v4/competitions/${idOrCode}/scorers` */
 export function scorersOfCompetition(
   idOrCode: number | string,
-  fitlers: Filters = {},
+  fitlers: Filters,
 ): URL {
   const query = buildFilterQuery(fitlers, ["season", "matchday"]);
   return makeURL(`${COMPETITION}/${idOrCode}/scorers${query}`);
@@ -60,7 +60,7 @@ export function scorersOfCompetition(
 /** url: `https://api.football-data.org/v4/competitions/${idOrCode}/matches` */
 export function matchesOfCompetition(
   idOrCode: number | string,
-  fitlers: Filters = {},
+  fitlers: Filters,
 ): URL {
   const query = buildFilterQuery(fitlers, [
     "season",
@@ -77,7 +77,7 @@ export function matchesOfCompetition(
 /** url: `https://api.football-data.org/v4/competitions/${idOrCode}/teams` */
 export function teamsOfCompetition(
   idOrCode: number | string,
-  fitlers: Filters = {},
+  fitlers: Filters,
 ): URL {
   const query = buildFilterQuery(fitlers, [
     "season",
@@ -86,8 +86,7 @@ export function teamsOfCompetition(
 }
 
 /** url: `https://api.football-data.org/v4/matches` */
-export function match(id: number, filters: MatchFilters) {
-  filters.ids.push(id);
+export function match(filters: MatchFilters) {
   filters.ids = removeDuplicates(filters.ids);
 
   const query = buildFilterQuery(filters, [
@@ -105,8 +104,13 @@ export function teams() {
   return makeURL(`${TEAM}`);
 }
 
+/** url: `https://api.football-data.org/v4/teams/${id}` */
+export function team(id: number) {
+  return makeURL(`${TEAM}/${id}`);
+}
+
 /** url: `https://api.football-data.org/v4/teams/${id}/matches` */
-export function matchesOfTeam(id: number, filters: Filters = {}) {
+export function matchesOfTeam(id: number, filters: Filters) {
   const query = buildFilterQuery(filters, [
     "dateFrom",
     "dateTo",
@@ -124,7 +128,7 @@ export function person(id: number) {
 }
 
 /** url: `https://api.football-data.org/v4/persons/${id}/matches` */
-export function matchesOfPerson(id: number, filters: Filters = {}) {
+export function matchesOfPerson(id: number, filters: Filters) {
   const query = buildFilterQuery(filters, [
     "lineup",
     "e",
