@@ -7,7 +7,9 @@ import {
   competitions,
   match,
   matchesOfCompetition,
+  matchesOfPerson,
   matchesOfTeam,
+  person,
   standingsOfCompetition,
   teams,
   teamsOfCompetition,
@@ -140,6 +142,29 @@ Deno.test("matches of team", () => {
     }),
     new URL(
       `/v4/teams/583/matches?dateFrom=2021-07-01&dateTo=2022-01-01`,
+      `https://api.football-data.org`,
+    ),
+  );
+});
+
+Deno.test("person", () => {
+  assertEquals(
+    person(16275),
+    new URL(
+      `/v4/persons/16275`,
+      `https://api.football-data.org`,
+    ),
+  );
+});
+
+Deno.test("matches of a person", () => {
+  assertEquals(
+    matchesOfPerson(16275, {
+      e: "GOAL",
+      limit: 5,
+    }),
+    new URL(
+      `/v4/persons/16275/matches?e=GOAL&limit=5`,
       `https://api.football-data.org`,
     ),
   );

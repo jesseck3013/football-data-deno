@@ -119,7 +119,12 @@ export function matchesOfTeam(id: number, filters: Filters = {}) {
 }
 
 /** url: `https://api.football-data.org/v4/persons/${id}` */
-export function person(id: number, filters: Filters = {}) {
+export function person(id: number) {
+  return makeURL(`${PERSON}/${id}`);
+}
+
+/** url: `https://api.football-data.org/v4/persons/${id}/matches` */
+export function matchesOfPerson(id: number, filters: Filters = {}) {
   const query = buildFilterQuery(filters, [
     "lineup",
     "e",
@@ -129,5 +134,6 @@ export function person(id: number, filters: Filters = {}) {
     "limit",
     "offset",
   ]);
-  return makeURL(`${PERSON}/${id}${query}`);
+
+  return makeURL(`${PERSON}/${id}/matches${query}`);
 }
