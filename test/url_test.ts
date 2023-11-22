@@ -7,7 +7,9 @@ import {
   competitions,
   match,
   matchesOfCompetition,
+  matchesOfTeam,
   standingsOfCompetition,
+  teams,
   teamsOfCompetition,
 } from "../src/rest.ts";
 
@@ -115,6 +117,29 @@ Deno.test("match", () => {
     match(2021, filters),
     new URL(
       `/v4/matches?ids=2021,2022`,
+      `https://api.football-data.org`,
+    ),
+  );
+});
+
+Deno.test("list all teams", () => {
+  assertEquals(
+    teams(),
+    new URL(
+      `/v4/teams`,
+      `https://api.football-data.org`,
+    ),
+  );
+});
+
+Deno.test("matches of team", () => {
+  assertEquals(
+    matchesOfTeam(583, {
+      "dateFrom": "2021-07-01",
+      "dateTo": "2022-01-01",
+    }),
+    new URL(
+      `/v4/teams/583/matches?dateFrom=2021-07-01&dateTo=2022-01-01`,
       `https://api.football-data.org`,
     ),
   );

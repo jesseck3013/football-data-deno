@@ -1,4 +1,11 @@
-import { API_BASE_URL, AREA, COMPETITION, MATCH } from "./constant.ts";
+import {
+  API_BASE_URL,
+  AREA,
+  COMPETITION,
+  MATCH,
+  PERSON,
+  TEAM,
+} from "./constant.ts";
 import { Filters, MatchFilters } from "./types.ts";
 import { buildFilterQuery, removeDuplicates } from "./utils.ts";
 
@@ -91,4 +98,36 @@ export function match(id: number, filters: MatchFilters) {
     "status",
   ]);
   return makeURL(`${MATCH}${query}`);
+}
+
+/** url: `https://api.football-data.org/v4/teams` */
+export function teams() {
+  return makeURL(`${TEAM}`);
+}
+
+/** url: `https://api.football-data.org/v4/teams/${id}/matches` */
+export function matchesOfTeam(id: number, filters: Filters = {}) {
+  const query = buildFilterQuery(filters, [
+    "dateFrom",
+    "dateTo",
+    "season",
+    "status",
+    "venue",
+    "limit",
+  ]);
+  return makeURL(`${TEAM}/${id}/matches${query}`);
+}
+
+/** url: `https://api.football-data.org/v4/persons/${id}` */
+export function person(id: number, filters: Filters = {}) {
+  const query = buildFilterQuery(filters, [
+    "lineup",
+    "e",
+    "dateFrom",
+    "dateTo",
+    "competitions",
+    "limit",
+    "offset",
+  ]);
+  return makeURL(`${PERSON}/${id}${query}`);
 }
