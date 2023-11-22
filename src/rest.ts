@@ -1,4 +1,6 @@
-import { API_BASE_URL, AREA } from "./constant.ts";
+import { API_BASE_URL, AREA, COMPETITION } from "./constant.ts";
+import { Filters } from "./types.ts";
+import { buildFilterQuery } from "./utils.ts";
 
 /** combine endpoint with the base url */
 function makeURL(endpoint: string): URL {
@@ -11,6 +13,67 @@ export function areas(): URL {
 }
 
 /** url: `https://api.football-data.org/v4/areas/${id}` */
-export function areasById(id: number | string) {
+export function areasById(id: number | string): URL {
   return makeURL(`${AREA}/${id}`);
+}
+
+/** url: `https://api.football-data.org/v4/competitions` */
+export function competitions(filters: Filters = {}): URL {
+  const query = buildFilterQuery(filters, ["areas"]);
+  return makeURL(`${COMPETITION}${query}`);
+}
+
+/** url: `https://api.football-data.org/v4/competitions/${idOrCode}` */
+export function competition(
+  idOrCode: number | string,
+  filters: Filters = {},
+): URL {
+  const query = buildFilterQuery(filters, ["areas"]);
+  return makeURL(`${COMPETITION}/${idOrCode}${query}`);
+}
+
+/** url: `https://api.football-data.org/v4/competitions/${idOrCode}/standings` */
+export function standingsOfCompetition(
+  idOrCode: number | string,
+  filters: Filters = {},
+): URL {
+  const query = buildFilterQuery(filters, ["season", "matchday", "date"]);
+  return makeURL(`${COMPETITION}/${idOrCode}/standings${query}`);
+}
+
+/** url: `https://api.football-data.org/v4/competitions/${idOrCode}/scorers` */
+export function scorersOfCompetition(
+  idOrCode: number | string,
+  fitlers: Filters = {},
+): URL {
+  const query = buildFilterQuery(fitlers, ["season", "matchday"]);
+  return makeURL(`${COMPETITION}/${idOrCode}/scorers${query}`);
+}
+
+/** url: `https://api.football-data.org/v4/competitions/${idOrCode}/matches` */
+export function matchesOfCompetition(
+  idOrCode: number | string,
+  fitlers: Filters = {},
+): URL {
+  const query = buildFilterQuery(fitlers, [
+    "season",
+    "matchday",
+    "status",
+    "dateFrom",
+    "dateTo",
+    "stage",
+    "group",
+  ]);
+  return makeURL(`${COMPETITION}/${idOrCode}/matches${query}`);
+}
+
+/** url: `https://api.football-data.org/v4/competitions/${idOrCode}/teams` */
+export function teamsOfCompetition(
+  idOrCode: number | string,
+  fitlers: Filters = {},
+): URL {
+  const query = buildFilterQuery(fitlers, [
+    "season",
+  ]);
+  return makeURL(`${COMPETITION}/${idOrCode}/teams${query}`);
 }
