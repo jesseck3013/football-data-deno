@@ -11,6 +11,6 @@ export function areas(): URL {
 }
 
 /** url: `https://api.football-data.org/v4/areas/${id}` */
-export function area(id: number | string) {
+export function areasById(id: number | string) {
   return makeURL(`${AREA}/${id}`);
 }
