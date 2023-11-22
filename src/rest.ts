@@ -1,6 +1,6 @@
-import { API_BASE_URL, AREA, COMPETITION } from "./constant.ts";
-import { Filters } from "./types.ts";
-import { buildFilterQuery } from "./utils.ts";
+import { API_BASE_URL, AREA, COMPETITION, MATCH } from "./constant.ts";
+import { Filters, MatchFilters } from "./types.ts";
+import { buildFilterQuery, removeDuplicates } from "./utils.ts";
 
 /** combine endpoint with the base url */
 function makeURL(endpoint: string): URL {
@@ -76,4 +76,19 @@ export function teamsOfCompetition(
     "season",
   ]);
   return makeURL(`${COMPETITION}/${idOrCode}/teams${query}`);
+}
+
+/** url: `https://api.football-data.org/v4/matches` */
+export function match(id: number, filters: MatchFilters) {
+  filters.ids.push(id);
+  filters.ids = removeDuplicates(filters.ids);
+
+  const query = buildFilterQuery(filters, [
+    "ids",
+    "date",
+    "dateFrom",
+    "dateTo",
+    "status",
+  ]);
+  return makeURL(`${MATCH}${query}`);
 }

@@ -5,6 +5,7 @@ import {
   areasById,
   competition,
   competitions,
+  match,
   matchesOfCompetition,
   standingsOfCompetition,
   teamsOfCompetition,
@@ -101,6 +102,19 @@ Deno.test("teams of a competition", () => {
     teamsOfCompetition("PL", filters),
     new URL(
       `/v4/competitions/PL/teams?season=2021`,
+      `https://api.football-data.org`,
+    ),
+  );
+});
+
+Deno.test("match", () => {
+  const filters = {
+    ids: [2021, 2022],
+  };
+  assertEquals(
+    match(2021, filters),
+    new URL(
+      `/v4/matches?ids=2021,2022`,
       `https://api.football-data.org`,
     ),
   );
