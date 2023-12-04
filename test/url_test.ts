@@ -5,6 +5,7 @@ import {
   areasById,
   competition,
   competitions,
+  head2headOfMatch,
   match,
   matchesOfCompetition,
   matchesOfPerson,
@@ -165,6 +166,18 @@ Deno.test("matches of a person", () => {
     }),
     new URL(
       `/v4/persons/16275/matches?e=GOAL&limit=5`,
+      `https://api.football-data.org`,
+    ),
+  );
+});
+
+Deno.test("head2head", () => {
+  assertEquals(
+    head2headOfMatch(327125, {
+      limit: 50,
+    }),
+    new URL(
+      `/v4/matches/327125/head2head?limit=50`,
       `https://api.football-data.org`,
     ),
   );

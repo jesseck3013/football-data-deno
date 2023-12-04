@@ -99,6 +99,17 @@ export function match(filters: MatchFilters) {
   return makeURL(`${MATCH}${query}`);
 }
 
+/** url: `https://api.football-data.org/v4/matches/{id}/head2head` */
+export function head2headOfMatch(id: number, filters: Filters) {
+  const query = buildFilterQuery(filters, [
+    "limit",
+    "dateFrom",
+    "dateTo",
+    "competitions",
+  ]);
+  return makeURL(`${MATCH}/${id}/head2head${query}`);
+}
+
 /** url: `https://api.football-data.org/v4/teams` */
 export function teams() {
   return makeURL(`${TEAM}`);

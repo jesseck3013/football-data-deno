@@ -4,6 +4,7 @@ import {
   areasById,
   competition,
   competitions,
+  head2headOfMatch,
   match,
   matchesOfCompetition,
   matchesOfPerson,
@@ -75,6 +76,11 @@ export class Client {
   /** match info */
   matches(filters: MatchFilters = { ids: [] }) {
     return this.#authFetch(match(filters));
+  }
+
+  /** head2head history info of a match */
+  head2head(matchId: number, filters: Filters = {}) {
+    return this.#authFetch(head2headOfMatch(matchId, filters));
   }
 
   /** list all teams */
