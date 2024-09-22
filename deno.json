@@ -1,6 +1,12 @@
 {
+  "name": "@freekick/football-data-client",
+  "version": "0.1.0",
+  "exports": "./mod.ts",
   "tasks": {
     "dev": "deno run --watch main.ts"
   },
-  "vendor": true
+  "vendor": true,
+  "imports": {
+    "@std/assert": "jsr:@std/assert@0.207.0"
+  }
 }
