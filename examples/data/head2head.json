@@ -1,0 +1,293 @@
+{
+  "filters": { "limit": 15, "permission": "TIER_ONE" },
+  "resultSet": {
+    "count": 4,
+    "competitions": "PL",
+    "first": "2022-08-05",
+    "last": "2024-01-20"
+  },
+  "aggregates": {
+    "numberOfMatches": 15,
+    "totalGoals": 52,
+    "homeTeam": {
+      "id": 57,
+      "name": "Arsenal FC",
+      "wins": 0,
+      "draws": 5,
+      "losses": 0
+    },
+    "awayTeam": {
+      "id": 354,
+      "name": "Crystal Palace FC",
+      "wins": 0,
+      "draws": 5,
+      "losses": 0
+    }
+  },
+  "matches": [
+    {
+      "area": {
+        "id": 2072,
+        "name": "England",
+        "code": "ENG",
+        "flag": "https://crests.football-data.org/770.svg"
+      },
+      "competition": {
+        "id": 2021,
+        "name": "Premier League",
+        "code": "PL",
+        "type": "LEAGUE",
+        "emblem": "https://crests.football-data.org/PL.png"
+      },
+      "season": {
+        "id": 1564,
+        "startDate": "2023-08-11",
+        "endDate": "2024-05-19",
+        "currentMatchday": 38,
+        "winner": null
+      },
+      "id": 436144,
+      "utcDate": "2024-01-20T12:30:00Z",
+      "status": "FINISHED",
+      "matchday": 21,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "lastUpdated": "2024-01-21T00:21:11Z",
+      "homeTeam": {
+        "id": 57,
+        "name": "Arsenal FC",
+        "shortName": "Arsenal",
+        "tla": "ARS",
+        "crest": "https://crests.football-data.org/57.png"
+      },
+      "awayTeam": {
+        "id": 354,
+        "name": "Crystal Palace FC",
+        "shortName": "Crystal Palace",
+        "tla": "CRY",
+        "crest": "https://crests.football-data.org/354.png"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": { "home": 5, "away": 0 },
+        "halfTime": { "home": 2, "away": 0 }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 11520,
+          "name": "Paul Tierney",
+          "type": "REFEREE",
+          "nationality": "England"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2072,
+        "name": "England",
+        "code": "ENG",
+        "flag": "https://crests.football-data.org/770.svg"
+      },
+      "competition": {
+        "id": 2021,
+        "name": "Premier League",
+        "code": "PL",
+        "type": "LEAGUE",
+        "emblem": "https://crests.football-data.org/PL.png"
+      },
+      "season": {
+        "id": 1564,
+        "startDate": "2023-08-11",
+        "endDate": "2024-05-19",
+        "currentMatchday": 38,
+        "winner": null
+      },
+      "id": 435954,
+      "utcDate": "2023-08-21T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 2,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "lastUpdated": "2023-09-19T20:20:30Z",
+      "homeTeam": {
+        "id": 354,
+        "name": "Crystal Palace FC",
+        "shortName": "Crystal Palace",
+        "tla": "CRY",
+        "crest": "https://crests.football-data.org/354.png"
+      },
+      "awayTeam": {
+        "id": 57,
+        "name": "Arsenal FC",
+        "shortName": "Arsenal",
+        "tla": "ARS",
+        "crest": "https://crests.football-data.org/57.png"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": { "home": 0, "away": 1 },
+        "halfTime": { "home": 0, "away": 0 }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 11556,
+          "name": "David Coote",
+          "type": "REFEREE",
+          "nationality": "England"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2072,
+        "name": "England",
+        "code": "ENG",
+        "flag": "https://crests.football-data.org/770.svg"
+      },
+      "competition": {
+        "id": 2021,
+        "name": "Premier League",
+        "code": "PL",
+        "type": "LEAGUE",
+        "emblem": "https://crests.football-data.org/PL.png"
+      },
+      "season": {
+        "id": 1490,
+        "startDate": "2022-08-05",
+        "endDate": "2023-05-28",
+        "currentMatchday": 38,
+        "winner": {
+          "id": 65,
+          "name": "Manchester City FC",
+          "shortName": "Man City",
+          "tla": "MCI",
+          "crest": "https://crests.football-data.org/65.png",
+          "address": "SportCity Manchester M11 3FF",
+          "website": "https://www.mancity.com",
+          "founded": 1880,
+          "clubColors": "Sky Blue / White",
+          "venue": "Etihad Stadium",
+          "lastUpdated": "2022-02-10T19:48:37Z"
+        }
+      },
+      "id": 416114,
+      "utcDate": "2023-03-19T14:00:00Z",
+      "status": "FINISHED",
+      "matchday": 28,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "lastUpdated": "2023-04-30T11:48:49Z",
+      "homeTeam": {
+        "id": 57,
+        "name": "Arsenal FC",
+        "shortName": "Arsenal",
+        "tla": "ARS",
+        "crest": "https://crests.football-data.org/57.png"
+      },
+      "awayTeam": {
+        "id": 354,
+        "name": "Crystal Palace FC",
+        "shortName": "Crystal Palace",
+        "tla": "CRY",
+        "crest": "https://crests.football-data.org/354.png"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": { "home": 4, "away": 1 },
+        "halfTime": { "home": 2, "away": 0 }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 11494,
+          "name": "Stuart Attwell",
+          "type": "REFEREE",
+          "nationality": "England"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2072,
+        "name": "England",
+        "code": "ENG",
+        "flag": "https://crests.football-data.org/770.svg"
+      },
+      "competition": {
+        "id": 2021,
+        "name": "Premier League",
+        "code": "PL",
+        "type": "LEAGUE",
+        "emblem": "https://crests.football-data.org/PL.png"
+      },
+      "season": {
+        "id": 1490,
+        "startDate": "2022-08-05",
+        "endDate": "2023-05-28",
+        "currentMatchday": 38,
+        "winner": {
+          "id": 65,
+          "name": "Manchester City FC",
+          "shortName": "Man City",
+          "tla": "MCI",
+          "crest": "https://crests.football-data.org/65.png",
+          "address": "SportCity Manchester M11 3FF",
+          "website": "https://www.mancity.com",
+          "founded": 1880,
+          "clubColors": "Sky Blue / White",
+          "venue": "Etihad Stadium",
+          "lastUpdated": "2022-02-10T19:48:37Z"
+        }
+      },
+      "id": 416384,
+      "utcDate": "2022-08-05T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "lastUpdated": "2023-04-06T16:20:27Z",
+      "homeTeam": {
+        "id": 354,
+        "name": "Crystal Palace FC",
+        "shortName": "Crystal Palace",
+        "tla": "CRY",
+        "crest": "https://crests.football-data.org/354.png"
+      },
+      "awayTeam": {
+        "id": 57,
+        "name": "Arsenal FC",
+        "shortName": "Arsenal",
+        "tla": "ARS",
+        "crest": "https://crests.football-data.org/57.png"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": { "home": 0, "away": 2 },
+        "halfTime": { "home": 0, "away": 1 }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 11580,
+          "name": "Anthony Taylor",
+          "type": "REFEREE",
+          "nationality": "England"
+        }
+      ]
+    }
+  ]
+}
