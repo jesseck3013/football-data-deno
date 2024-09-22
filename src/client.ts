@@ -17,31 +17,44 @@ import {
   teamsOfCompetition,
 } from "./rest.ts";
 import { Filters, MatchFilters } from "./types.ts";
+import { FootballResponse } from "./types/response.ts";
+import { Area, AreasResult } from "./types/areas.ts";
+import {
+  Competition,
+  CompetitionsResult,
+  MatchesOfCompetition,
+  ScoersResult,
+  StandingsResult,
+  TeamsOfCompetition,
+} from "./types/competitions.ts";
+import { MatchesResult } from "./types/matches.ts";
+import { Head2Head, MatchesOfTeam, Team, TeamsResult } from "./types/teams.ts";
+import { PersonDetail } from "./types/person.ts";
 
 export class Client {
-  private authFetch: (url: URL) => Promise<Response>;
+  private authFetch: <Type>(url: URL) => Promise<FootballResponse<Type>>;
   constructor(token: string) {
     this.authFetch = makeAuthFetchFn(token);
   }
 
   /** list all areas */
   areas() {
-    return this.authFetch(areas());
+    return this.authFetch<AreasResult>(areas());
   }
 
   /** given a parent id, return all child ids */
   areasById(id: number | string) {
-    return this.authFetch(areasById(id));
+    return this.authFetch<Area>(areasById(id));
   }
 
   /** list competitions */
   competitions(filters: Filters = {}) {
-    return this.authFetch(competitions(filters));
+    return this.authFetch<CompetitionsResult>(competitions(filters));
   }
 
   /** info of a specific competition by its id or code */
   competition(idOrCode: number | string = "PL", filters: Filters = {}) {
-    return this.authFetch(competition(idOrCode, filters));
+    return this.authFetch<Competition>(competition(idOrCode, filters));
   }
 
   /** standings info of a specific competition */
@@ -49,7 +62,9 @@ export class Client {
     idOrCode: number | string = "PL",
     filters: Filters = {},
   ) {
-    return this.authFetch(standingsOfCompetition(idOrCode, filters));
+    return this.authFetch<StandingsResult>(
+      standingsOfCompetition(idOrCode, filters),
+    );
   }
 
   /** top scorer info of a specific competition */
@@ -57,7 +72,9 @@ export class Client {
     idOrCode: number | string = "PL",
     filters: Filters = {},
   ) {
-    return this.authFetch(scorersOfCompetition(idOrCode, filters));
+    return this.authFetch<ScoersResult>(
+      scorersOfCompetition(idOrCode, filters),
+    );
   }
 
   /** matches of a competition */
@@ -65,46 +82,50 @@ export class Client {
     idOrCode: number | string = "PL",
     filters: Filters = {},
   ) {
-    return this.authFetch(matchesOfCompetition(idOrCode, filters));
+    return this.authFetch<MatchesOfCompetition>(
+      matchesOfCompetition(idOrCode, filters),
+    );
   }
 
   /** teams info of its competition */
   teamsOfCompetition(idOrCode: number | string = "PL", filters: Filters = {}) {
-    return this.authFetch(teamsOfCompetition(idOrCode, filters));
+    return this.authFetch<TeamsOfCompetition>(
+      teamsOfCompetition(idOrCode, filters),
+    );
   }
 
   /** match info */
   matches(filters: MatchFilters = { ids: [] }) {
-    return this.authFetch(match(filters));
+    return this.authFetch<MatchesResult>(match(filters));
   }
 
   /** head2head history info of a match */
   head2head(matchId: number, filters: Filters = {}) {
-    return this.authFetch(head2headOfMatch(matchId, filters));
+    return this.authFetch<Head2Head>(head2headOfMatch(matchId, filters));
   }
 
   /** list all teams */
   teams() {
-    return this.authFetch(teams());
+    return this.authFetch<TeamsResult>(teams());
   }
 
   /** team info */
   team(id: number) {
-    return this.authFetch(team(id));
+    return this.authFetch<Team>(team(id));
   }
 
   /** matches info of a team */
   matchesOfTeam(id: number, filters: Filters = {}) {
-    return this.authFetch(matchesOfTeam(id, filters));
+    return this.authFetch<MatchesOfTeam>(matchesOfTeam(id, filters));
   }
 
   /** person info */
   person(id: number) {
-    return this.authFetch(person(id));
+    return this.authFetch<PersonDetail>(person(id));
   }
 
   /** matches of a person */
   matchesOfPerson(id: number, filters: Filters = {}) {
-    return this.authFetch(matchesOfPerson(id, filters));
+    return this.authFetch<MatchesOfCompetition>(matchesOfPerson(id, filters));
   }
 }

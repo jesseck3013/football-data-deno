@@ -1,8 +1,49 @@
 import { Filters, ValidValue } from "./types.ts";
+import { FootballResponse } from "./types/response.ts";
+import { FootballHeaders } from "./types/response.ts";
+
+export interface ErrorMsg {
+  message: string;
+}
+
+function fetchSource(url: URL, token: string) {
+  return fetch(url, {
+    method: "GET",
+    headers: { "X-Auth-Token": token },
+  });
+}
+
+function parseResponse(resp: Response): FootballHeaders {
+  const headers = resp.headers;
+  return {
+    date: headers.get("x-api-version") ?? undefined,
+    "x-api-version": headers.get("x-api-version") ?? undefined,
+    "x-authenticated-client": headers.get("x-api-version") ?? undefined,
+    "x-requestcounter-reset": headers.get("x-api-version") ?? undefined,
+    "x-requests-available-minute": headers.get("x-api-version") ?? undefined,
+  };
+}
 
 export function makeAuthFetchFn(token: string) {
-  return (url: URL) => {
-    return fetch(url, { method: "GET", headers: { "X-Auth-Token": token } });
+  return async <Type>(url: URL) => {
+    const resp = await fetchSource(url, token);
+
+    if (!resp.ok) {
+      const errMsg = await resp.json();
+      throw new Error(
+        `request failed with status ${resp.status}, because ${errMsg.message}`,
+      );
+    }
+
+    const headers = parseResponse(resp);
+    const data = await resp.json();
+    return {
+      ok: resp.ok,
+      status: resp.status,
+      url: resp.url,
+      headers: headers,
+      data: data,
+    } as FootballResponse<Type>;
   };
 }
 

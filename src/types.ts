@@ -9,3 +9,8 @@ export interface MatchFilters extends Filters {
   dateTo?: string;
   status?: string;
 }
+
+export interface Result {
+  count?: number;
+  filters: Filters;
+}
