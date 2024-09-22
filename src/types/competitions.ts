@@ -1,8 +1,8 @@
-import { Result } from "../types.ts";
-import { AreaRefernece } from "./areas.ts";
-import { Match } from "./matches.ts";
-import { Player } from "./person.ts";
-import { Team, TeamBase } from "./teams.ts";
+import type { Result } from "../types.ts";
+import type { AreaRefernece } from "./areas.ts";
+import type { Match } from "./matches.ts";
+import type { Player } from "./person.ts";
+import type { Team, TeamBase } from "./teams.ts";
 
 export interface CompetitionsResult extends Result {
     competitions: Competition[];

@@ -1,4 +1,4 @@
-import { Result } from "../types.ts";
+import type { Result } from "../types.ts";
 
 export interface AreasResult extends Result {
   areas: Area[];

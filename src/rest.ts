@@ -6,7 +6,7 @@ import {
   PERSON,
   TEAM,
 } from "./constant.ts";
-import { Filters, MatchFilters } from "./types.ts";
+import type { Filters, MatchFilters } from "./types.ts";
 import { buildFilterQuery, removeDuplicates } from "./utils.ts";
 
 /** combine endpoint with the base url */
@@ -87,7 +87,9 @@ export function teamsOfCompetition(
 
 /** url: `https://api.football-data.org/v4/matches` */
 export function match(filters: MatchFilters) {
-  filters.ids = removeDuplicates(filters.ids);
+  if (filters.ids) {
+    filters.ids = removeDuplicates(filters.ids);
+  }
 
   const query = buildFilterQuery(filters, [
     "ids",

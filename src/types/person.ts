@@ -1,8 +1,8 @@
-import { Result } from "../types.ts";
-import { AreaRefernece } from "./areas.ts";
-import { CompetitionBase } from "./competitions.ts";
-import { Match } from "./matches.ts";
-import { Team } from "./teams.ts";
+import type { Result } from "../types.ts";
+import type { AreaRefernece } from "./areas.ts";
+import type { CompetitionBase } from "./competitions.ts";
+import type { Match } from "./matches.ts";
+import type { Team } from "./teams.ts";
 
 export interface PersonBase {
     id: number;

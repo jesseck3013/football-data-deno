@@ -1,8 +1,8 @@
-import { Coach, PersonBase } from "./person.ts";
-import { Area } from "./areas.ts";
-import { CompetitionBase } from "./competitions.ts";
-import { Filters, Result } from "../types.ts";
-import { Match } from "./matches.ts";
+import type { Coach, PersonBase } from "./person.ts";
+import type { Area } from "./areas.ts";
+import type { CompetitionBase } from "./competitions.ts";
+import type { Filters, Result } from "../types.ts";
+import type { Match } from "./matches.ts";
 
 export interface TeamsResult {
     count: number;

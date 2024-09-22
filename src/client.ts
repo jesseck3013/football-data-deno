@@ -16,10 +16,10 @@ import {
   teams,
   teamsOfCompetition,
 } from "./rest.ts";
-import { Filters, MatchFilters } from "./types.ts";
-import { FootballResponse } from "./types/response.ts";
-import { Area, AreasResult } from "./types/areas.ts";
-import {
+import type { Filters, MatchFilters } from "./types.ts";
+import type { FootballResponse } from "./types/response.ts";
+import type { Area, AreasResult } from "./types/areas.ts";
+import type {
   Competition,
   CompetitionsResult,
   MatchesOfCompetition,
@@ -27,9 +27,14 @@ import {
   StandingsResult,
   TeamsOfCompetition,
 } from "./types/competitions.ts";
-import { MatchesResult } from "./types/matches.ts";
-import { Head2Head, MatchesOfTeam, Team, TeamsResult } from "./types/teams.ts";
-import { PersonDetail } from "./types/person.ts";
+import type { MatchesResult } from "./types/matches.ts";
+import type {
+  Head2Head,
+  MatchesOfTeam,
+  Team,
+  TeamsResult,
+} from "./types/teams.ts";
+import type { PersonDetail } from "./types/person.ts";
 
 export class Client {
   private authFetch: <Type>(url: URL) => Promise<FootballResponse<Type>>;

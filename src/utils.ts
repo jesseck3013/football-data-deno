@@ -1,6 +1,6 @@
-import { Filters, ValidValue } from "./types.ts";
-import { FootballResponse } from "./types/response.ts";
-import { FootballHeaders } from "./types/response.ts";
+import type { Filters, ValidValue } from "./types.ts";
+import type { FootballResponse } from "./types/response.ts";
+import type { FootballHeaders } from "./types/response.ts";
 
 export interface ErrorMsg {
   message: string;

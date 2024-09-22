@@ -1,7 +1,7 @@
-import { Filters } from "../types.ts";
-import { AreaRefernece } from "./areas.ts";
-import { CompetitionBase, Season } from "./competitions.ts";
-import { Team } from "./teams.ts";
+import type { Filters } from "../types.ts";
+import type { AreaRefernece } from "./areas.ts";
+import type { CompetitionBase, Season } from "./competitions.ts";
+import type { Team } from "./teams.ts";
 
 export interface MatchesResult {
     filters: Filters;
